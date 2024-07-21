@@ -1,0 +1,58 @@
+<div>
+    <script>
+
+        let globalid = 1;
+
+        function markasdone(todoID){
+            const parent = document.getElementById(todoID);
+            parent.children[2].innerHTML = "Done!";
+        }
+
+        function createChild(title, description , id){
+            const child = document.createElement("div");
+            const firstgrandchild = document.createElement("div");
+            firstgrandchild.innerHTML = title;
+            const secondgrandchild = document.createElement("div");
+            secondgrandchild.innerHTML = description;
+            const thirdgrandchild = document.createElement("button");
+            thirdgrandchild.innerHTML = "mark as done";
+            thirdgrandchild.setAttribute("onclick", `markasdone(${id})`);
+            child.appendChild(firstgrandchild);
+            child.appendChild(secondgrandchild);
+            child.appendChild(thirdgrandchild);
+            child.setAttribute("id" , id);
+            return child;
+        }
+
+        function addtodo(){
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const parent = document.getElementById("todos");
+            // console.log(title);
+            // console.log(description);
+            parent.appendChild(createChild(title, description, globalid++));
+    //         parent.appendChild(`<div>
+    //         <div>${title}</div>
+    //         <div>${description}</div>
+    //         <button>Mark as done</button>
+    //     </div>`
+    // ); 
+        //     document.getElementById("container").innerHTML = originalHTML + `<div>
+        //     <div>${title}</div>
+        //     <div>${description}</div>
+        //     <button>Mark as done</button>
+        // </div>`
+        }
+
+        
+    </script>
+
+    <input type="text" placeholder="title" name="" id="title">
+    <br></br>
+    <input type="text" placeholder="description" name="" id="description">
+    <br></br>
+    <button onclick="addtodo()">add todo</button>
+    <div id="todos">
+        
+    </div>
+</div>
