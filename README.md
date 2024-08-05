@@ -1,2 +1,2 @@
 # TODO Application
-Basic TODO using DOM Manipulation
+Basic TODO using DOM Manipulation.
